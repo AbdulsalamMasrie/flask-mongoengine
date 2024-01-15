@@ -1,5 +1,5 @@
 from bson import json_util
-from flask.json import JSONEncoder
+from json import JSONEncoder
 from mongoengine.base import BaseDocument
 from mongoengine.queryset import QuerySet
 
@@ -35,4 +35,4 @@ def override_json_encoder(app):
     NOTE: This does not cover situations where users override
     an instance's json_encoder after calling init_app.
     """
-    app.json_encoder = _make_encoder(app.json_encoder)
+    app.json_encoder = _make_encoder(JSONEncoder)
